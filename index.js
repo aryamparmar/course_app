@@ -1,12 +1,14 @@
+require("dotenv").config();
+
 const express =require("express");
 const app=express();
 const mongoose =require("mongoose");
 const cors=require("cors")
 const zod=require("zod");
 const jwt=require("jsonwebtoken");
-const uri="mongodb+srv://aryamsingh7676:parmar%40123@cluster0.57ifb.mongodb.net/User";
-const password="12345";
-const company_password="siraryam";
+const uri=process.env.uri;
+const password=process.env.password;
+const company_password=process.env.company_password;
 async function connectdb(){
    await mongoose.connect(uri);
    console.log("db is connected");
